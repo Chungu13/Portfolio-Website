@@ -35,7 +35,7 @@ export default function Home() {
         "Backend system that enables manufacturers to apply for product certification online and allows consumers to verify certifications via QR codes.",
       tags: ["Python", "Django", "GraphQL", "PostgreSQL", "Docker"],
       github: "https://github.com/Chungu13/Chungu-Yamfumu-ZABS-Project",
-      image: "/Zabsimage.png",
+      image: "/ZabsImage.png",
     },
 
     {
@@ -295,7 +295,7 @@ export default function Home() {
 
                       {/* LINKEDIN */}
                       <a
-                        href="https://linkedin.com/in/chungu-muloshi"
+                        href="https://www.linkedin.com/in/chungumuloshi/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex flex-col items-start gap-6 p-8 rounded-3xl glass border border-neutral-800 hover:bg-blue-400/5 transition-all group"
