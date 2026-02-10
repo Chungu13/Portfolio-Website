@@ -12,7 +12,7 @@ import SectionHeading from "@/components/SectionHeading";
 import OpeningOverlay from "@/components/OpeningOverlay";
 import ProjectCard from "@/components/ProjectCard";
 import SkillBadge from "@/components/SkillBadge";
-import { i } from "framer-motion/client";
+
 
 // --- Main Content ---
 
@@ -27,7 +27,7 @@ export default function Home() {
         "Web-based appointment management system that helps SMEs in the beauty and wellness industry manage bookings digitally, reducing manual scheduling and administrative workload.",
       tags: ["MongoDB", "Express", "React", "Node.js"],
       github: "https://github.com/Chungu13/AuraTime",
-      image: "/AURATIMEIMAGE.png",
+      image: "/auratime.png",
     },
     {
       title: "ZABS Certification & Verification System",
@@ -35,7 +35,7 @@ export default function Home() {
         "Backend system that enables manufacturers to apply for product certification online and allows consumers to verify certifications via QR codes.",
       tags: ["Python", "Django", "GraphQL", "PostgreSQL", "Docker"],
       github: "https://github.com/Chungu13/Chungu-Yamfumu-ZABS-Project",
-      image: "/Zabsimage.png",
+      image: "/zabs.png",
     },
 
     {
@@ -44,7 +44,7 @@ export default function Home() {
         "Full-stack product catalogue system for a thrift store, allowing users to browse products while the backend manages inventory and product data. Built as the first phase of a future online store.",
       tags: ["React", "Python", "Django", "GraphQL", "PostgreSQL", "Docker"],
       github: "https://github.com/yourusername/product-catalogue-system",
-      image: "/CatalogueImage.png",
+      image: "/catalogue.png",
     },
   ];
 
