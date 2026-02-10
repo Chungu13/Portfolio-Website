@@ -22,7 +22,7 @@ export default function Home() {
 
   const projects = [
     {
-      title: "Appoitnment Management System",
+      title: "Appointment Management System",
       description:
         "Web-based appointment management system that helps SMEs in the beauty and wellness industry manage bookings digitally, reducing manual scheduling and administrative workload.",
       tags: ["MongoDB", "Express", "React", "Node.js"],
