@@ -262,6 +262,7 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
+                </section>
 
             {/* CONTACT */}
             <section id="contact" className="py-40 px-6 relative">
