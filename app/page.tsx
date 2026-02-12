@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Github, Mail, Code2, ArrowRight, ChevronDown, Linkedin } from "lucide-react";
+import { Github, Mail, ArrowRight, Linkedin } from "lucide-react";
 
 // --- Components ---
 import Navbar from "@/components/Navbar";
@@ -12,13 +12,17 @@ import SectionHeading from "@/components/SectionHeading";
 import OpeningOverlay from "@/components/OpeningOverlay";
 import ProjectCard from "@/components/ProjectCard";
 import SkillBadge from "@/components/SkillBadge";
-import { i } from "framer-motion/client";
 
 // --- Main Content ---
-
 export default function Home() {
   const [name, setName] = useState("");
   const [hasEntered, setHasEntered] = useState(false);
+
+  // Persist name across page reloads
+  useEffect(() => {
+    const storedName = localStorage.getItem("name");
+    if (storedName) setName(storedName);
+  }, []);
 
   const projects = [
     {
@@ -37,7 +41,6 @@ export default function Home() {
       github: "https://github.com/Chungu13/Chungu-Yamfumu-ZABS-Project",
       image: "/zabs.png",
     },
-
     {
       title: "Product Catalogue System",
       description:
@@ -58,7 +61,10 @@ export default function Home() {
           <OpeningOverlay
             key="overlay"
             name={name}
-            setName={setName}
+            setName={(newName) => {
+              setName(newName);
+              localStorage.setItem("name", newName);
+            }}
             onEnter={() => setHasEntered(true)}
           />
         )}
@@ -88,7 +94,7 @@ export default function Home() {
                   transition={{
                     duration: 1.2,
                     ease: [0.22, 1, 0.36, 1],
-                    delay: 0.5
+                    delay: 0.5,
                   }}
                   className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter leading-[0.8] mix-blend-difference"
                 >
@@ -168,30 +174,9 @@ export default function Home() {
                     <img
                       src="/portfolioimage.jpeg"
                       alt="Profile photo"
-                      className="
-      w-full
-      h-full
-      object-cover
-      rounded-3xl
-      border
-      border-neutral-800
-      hover:grayscale-0
-      transition-all
-      duration-700
-    "
+                      className="w-full h-full object-cover rounded-3xl border border-neutral-800 hover:grayscale-0 transition-all duration-700"
                     />
                   </div>
-
-                  {/* 
-                  <div className="flex items-center justify-center h-full">
-                    <div className="grid grid-cols-2 gap-4 p-8">
-                      {[1, 2, 3, 4].map(i => (
-                        <div key={i} className="w-32 h-32 glass border border-neutral-800 rounded-2xl flex items-center justify-center animate-pulse" style={{ animationDelay: `${i * 200}ms` }}>
-                          <Code2 className="w-8 h-8 text-neutral-800" />
-                        </div>
-                      ))}
-                    </div>
-                  </div> */}
                 </div>
               </div>
             </section>
@@ -206,11 +191,7 @@ export default function Home() {
 
                 <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                   {projects.map((project, i) => (
-                    <ProjectCard
-                      key={project.title}
-                      project={project}
-                      index={i}
-                    />
+                    <ProjectCard key={project.title} project={project} index={i} />
                   ))}
                 </div>
               </div>
@@ -219,10 +200,7 @@ export default function Home() {
             {/* SKILLS */}
             <section id="skills" className="py-40 px-6 bg-neutral-950/50">
               <div className="max-w-7xl mx-auto">
-                <SectionHeading
-                  title="Technical Skills"
-                  subtitle="Capabilities"
-                />
+                <SectionHeading title="Technical Skills" subtitle="Capabilities" />
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                   {[
                     "Django",
@@ -240,29 +218,20 @@ export default function Home() {
               </div>
             </section>
 
-
-
-            {/* ABOUT */}
-            <section
-              id="Availability"
-              className="py-40 px-6 relative bg-neutral-950/50"
-            >
+            {/* AVAILABILITY */}
+            <section id="availability" className="py-40 px-6 relative bg-neutral-950/50">
               <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
                 <div className="relative">
-                  <SectionHeading title="Availabilty & Work Style" subtitle="Philosophy" />
-                  <div className="space-y-6 text-lg text-neutral-400 font-light leading-relaxed">
-                    <p>
-                      I am available for full time or part time remote roles.
-
-                      I have rliable inetent connection
-
-                      I am flexible acrooss time zones
-
-                      I am an independendent and proactive worker
-                    </p>
-                  </div>
+                  <SectionHeading title="Availability & Work Style" subtitle="Philosophy" />
+                  <ul className="list-disc pl-5 space-y-2 text-lg text-neutral-400 font-light leading-relaxed">
+                    <li>Available for full-time or part-time remote roles</li>
+                    <li>Reliable internet connection</li>
+                    <li>Flexible across time zones</li>
+                    <li>Independent and proactive worker</li>
+                  </ul>
                 </div>
-                </section>
+              </div>
+            </section>
 
             {/* CONTACT */}
             <section id="contact" className="py-40 px-6 relative">
@@ -271,15 +240,12 @@ export default function Home() {
                   <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
 
                   <div className="relative z-10 max-w-3xl">
-                    <SectionHeading
-                      title="I Am Only An Inbox Away."
-                      subtitle="Get In Touch"
-                    />
+                    <SectionHeading title="I Am Only An Inbox Away." subtitle="Get In Touch" />
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                       {/* EMAIL */}
                       <a
-                        href="https://mail.google.com/mail/?view=cm&fs=1&to=chungumuloshi03@gmail.com"
+                        href="mailto:chungumuloshi03@gmail.com"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex flex-col items-start gap-6 p-8 rounded-3xl glass border border-neutral-800 hover:bg-blue-600/5 transition-all group"
@@ -288,12 +254,8 @@ export default function Home() {
                           <Mail className="w-6 h-6" />
                         </div>
                         <div className="w-full overflow-hidden">
-                          <p className="text-xs text-neutral-500 font-mono uppercase tracking-widest mb-1">
-                            Email
-                          </p>
-                          <p className="text-lg font-medium break-all">
-                            chungumuloshi03@gmail.com
-                          </p>
+                          <p className="text-xs text-neutral-500 font-mono uppercase tracking-widest mb-1">Email</p>
+                          <p className="text-lg font-medium break-all">chungumuloshi03@gmail.com</p>
                         </div>
                       </a>
 
@@ -308,12 +270,8 @@ export default function Home() {
                           <Github className="w-6 h-6" />
                         </div>
                         <div>
-                          <p className="text-xs text-neutral-500 font-mono uppercase tracking-widest mb-1">
-                            GitHub
-                          </p>
-                          <p className="text-lg font-medium">
-                            github.com/Chungu13
-                          </p>
+                          <p className="text-xs text-neutral-500 font-mono uppercase tracking-widest mb-1">GitHub</p>
+                          <p className="text-lg font-medium">github.com/Chungu13</p>
                         </div>
                       </a>
 
@@ -328,12 +286,8 @@ export default function Home() {
                           <Linkedin className="w-6 h-6" />
                         </div>
                         <div>
-                          <p className="text-xs text-neutral-500 font-mono uppercase tracking-widest mb-1">
-                            LinkedIn
-                          </p>
-                          <p className="text-lg font-medium">
-                            Chungu Muloshi
-                          </p>
+                          <p className="text-xs text-neutral-500 font-mono uppercase tracking-widest mb-1">LinkedIn</p>
+                          <p className="text-lg font-medium">Chungu Muloshi</p>
                         </div>
                       </a>
                     </div>
@@ -341,10 +295,7 @@ export default function Home() {
                 </div>
 
                 <footer className="mt-20 pt-10 border-t border-neutral-900 flex flex-col md:flex-row justify-between items-center gap-6 text-neutral-600 text-sm font-mono">
-                  <p>
-                    &copy; 2026 ARCHITECT PORTFOLIO. ALL SYSTEMS OPERATIONAL.
-                  </p>
-
+                  <p>&copy; 2026 CHUNGU MULOSHI PORTFOLIO. ALL SYSTEMS OPERATIONAL.</p>
                 </footer>
               </div>
             </section>
