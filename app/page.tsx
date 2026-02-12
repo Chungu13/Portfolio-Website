@@ -222,7 +222,7 @@ export default function Home() {
             <section id="availability" className="py-40 px-6 relative bg-neutral-950/50">
               <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
                 <div className="relative">
-                  <SectionHeading title="Availability & Work Style" subtitle="Philosophy" />
+                  <SectionHeading title="Availability & Work Style" subtitle="Open to Opportunities" />
                   <ul className="list-disc pl-5 space-y-2 text-lg text-neutral-400 font-light leading-relaxed">
                     <li>Available for full-time or part-time remote roles</li>
                     <li>Reliable internet connection</li>
