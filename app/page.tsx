@@ -240,6 +240,29 @@ export default function Home() {
               </div>
             </section>
 
+
+
+            {/* ABOUT */}
+            <section
+              id="Availability"
+              className="py-40 px-6 relative bg-neutral-950/50"
+            >
+              <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+                <div className="relative">
+                  <SectionHeading title="Availabilty & Work Style" subtitle="Philosophy" />
+                  <div className="space-y-6 text-lg text-neutral-400 font-light leading-relaxed">
+                    <p>
+                      I am available for full time or part time remote roles.
+
+                      I have rliable inetent connection
+
+                      I am flexible acrooss time zones
+
+                      I am an independendent and proactive worker
+                    </p>
+                  </div>
+                </div>
+
             {/* CONTACT */}
             <section id="contact" className="py-40 px-6 relative">
               <div className="max-w-7xl mx-auto">
