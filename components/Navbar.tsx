@@ -40,7 +40,7 @@ export default function Navbar() {
                 </div>
 
                 <a
-                    href="Chungu_Muloshi_CV_Updated_Dummy.pdf"
+                    href="Chungu Muloshi Curriculum Vitae.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
