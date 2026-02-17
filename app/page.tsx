@@ -173,9 +173,9 @@ export default function Home() {
 
                   <div className="relative w-full h-full flex items-center justify-center p-8">
                     <img
-                      src="/portfolioimage.jpeg"
+                      src="/image.jpeg"
                       alt="Profile photo"
-                      className="w-full h-full object-cover rounded-3xl border border-neutral-800 hover:grayscale-0 transition-all duration-700"
+                      className="w-full h-full object-contain rounded-3xl border border-neutral-800"
                     />
                   </div>
                 </div>
